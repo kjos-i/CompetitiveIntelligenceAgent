@@ -45,7 +45,7 @@ def load_data() -> pd.DataFrame:
     """Load the full intel ledger from SQLite into a DataFrame.
 
     Returns an empty DataFrame if the database file does not yet exist or if
-    the query fails.  Cached indefinitely; call load_data.clear() to
+    the query fails. Cached indefinitely; call load_data.clear() to
     force a fresh read when new rows are detected.
     """
     if not DB_PATH.exists():

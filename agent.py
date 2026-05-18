@@ -55,9 +55,9 @@ logger = setup_logger(LOGGER_NAME, log_file=Path(__file__).with_name("agent.log"
 
 try:
     init_db()
-    logger.info("Long-term memory cache initialized.")
+    logger.info("Long-term memory store initialized.")
 except Exception as e:
-    logger.warning(f"Could not initialize memory cache: {e}")
+    logger.warning(f"Could not initialize memory store: {e}")
 
 # Create the primary model and specialist agents.
 llm = ChatOpenAI(model=MODEL_NAME, temperature=TEMPERATURE)
@@ -157,7 +157,7 @@ def _build_supervisor_prompt(state, config) -> list:
     so the agent gets an explicit PREVIOUS STATUS marker instead of a blank
     line. Without this, the system prompt's "compare PREVIOUS STATUS to NEW
     INFORMATION" instructions leave the agent asking the user to provide
-    both — the L2 live cold-start path is the typical caller.
+    both — the L2 live evaluation cold-start path is the typical caller.
     """
     history = (config.get("configurable", {}).get("history_context") or "").strip()
     if not history:
@@ -213,7 +213,7 @@ async def run_agent(query: str, config: dict, company: str, engine: str, mode: s
     """Stream the agent graph for *query* and persist the result to the ledger.
 
     Iterates over LangGraph streaming events, printing live output to the
-    console and collecting the final research report.  After the stream ends,
+    console and collecting the final research report. After the stream ends,
     a structured sentiment call is made and everything is saved to SQLite.
 
     Args:

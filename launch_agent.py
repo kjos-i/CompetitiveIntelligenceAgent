@@ -8,7 +8,7 @@ from agent_modes import run_automated_lookout, run_manual_chat
 def main() -> None:
     """Entry point: prompt the user to choose a workflow and run it.
 
-    Mode 1 — Manual: interactive REPL for ad-hoc com2pany research.
+    Mode 1 — Manual: interactive REPL for ad-hoc company research.
     Mode 2 — Auto:   batch watchlist scan with optional deep follow-up.
     """
     print("1: Manual Mode (Interactive Chat)")

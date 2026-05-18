@@ -1,4 +1,4 @@
-"""Interactive and automated execution modes for the Moodgruppen agent.
+"""Interactive and automated execution modes for the agent.
 
 Exposes two top-level coroutines:
 - run_manual_chat  — REPL loop for ad-hoc company research.
@@ -30,9 +30,9 @@ async def run_manual_chat():
     """REPL loop for manual, interactive company research.
 
     Prompts the user for a company name, search engine preference, and a free-
-    text research question.  Looks up the last HISTORY_LIMIT ledger entries
+    text research question. Looks up the last HISTORY_LIMIT ledger entries
     for that company and injects them as PREVIOUS STATUS context before calling
-    the agent.  Results are stored in SQLite after each run.
+    the agent. Results are stored in SQLite after each run.
     """
     config = {"configurable": {"thread_id": "manual_user"}}
     print("\n✧ Manual Mode Ready. Type 'exit' to quit.")
@@ -93,7 +93,7 @@ async def run_automated_lookout():
     collects any companies whose significance score meets SIGNIFICANCE_THRESHOLD.
 
     Phase 2 — Tavily Deep Search (optional): for each flagged company the user
-    is prompted to approve a deeper Tavily search.  A bulk "run all" option
+    is prompted to approve a deeper Tavily search. A bulk "run all" option
     is available to skip per-company confirmations.
     """
     watchlist = load_watchlist()
@@ -144,13 +144,13 @@ async def run_automated_lookout():
                 print(f"☰ Queueing Deep Search for {company_name} (Significant change detected).")
                 pending_deep_searches.append((company_name, config))
 
-
         except Exception as e:
             logger.error(f"Lookout failed for {company_name}: {e}")
             print(f"!! Error scouting {company_name}. Check agent.log for details.")
             continue
 
-    # --- THE "HUMAN ARRIVAL" PHASE ---
+
+    # --- HUMAN-IN-THE-LOOP ---
     if not pending_deep_searches:
         print("\n✓ All checks complete. No major moves detected today.")
         return
