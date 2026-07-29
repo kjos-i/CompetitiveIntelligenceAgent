@@ -10,6 +10,8 @@ The agent's Streamlit dashboard can be used to visualize data in the SQLite ledg
 python -m streamlit run dashboard.py --server.port 8501
 ```
 
+![Competitive Intelligence agent dashboard](images/agent_dashboard.gif)
+
 See [Run Instructions](#run-instructions) below for how to start the agent.
 
 For a top-down map of every folder and file in the project, see [`info_project.md`](info_project.md). For a candid review of the project's strengths, trade-offs, and room for improvement, see [`info_considerations.md`](info_considerations.md). For more information about the evaluation harness used to evaluate the agent, see [`evaluation/README.md`](evaluation/README.md).

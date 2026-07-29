@@ -20,6 +20,10 @@ The harness's Streamlit dashboard can be used to visualize evaluation results in
 python -m streamlit run evaluation/eval_dashboard.py --server.port 8502
 ```
 
+![Run Summary tab of the evaluation dashboard](images/eval_dashboard_run_summary.gif)
+
+![Deep Analysis tab of the evaluation dashboard](images/eval_dashboard_deep_analysis_2.gif)
+
 ## Why the metric registry pattern
 
 Every metric in the harness is declared once as a `MetricDef` in [`eval_metric_registry.py`](eval_metric_registry.py). The registry is the single source of truth for:
@@ -31,6 +35,8 @@ Every metric in the harness is declared once as a `MetricDef` in [`eval_metric_r
 - Run-level summary aliases. Every per-case metric whose run-level mean has different display precision than the per-case value declares both `summary_avg_key` (e.g. `avg_tool_call_count`) and `summary_avg_fmt` (e.g. `".2f"` for the float mean of an integer count).
 
 Adding a new metric means adding one entry to the `METRICS` list and writing the compute function (deterministic) or DeepEval criteria (LLM-judged). The SQLite schema, CSV columns, dashboard cards, and summary averages all derive from the registry automatically.
+
+![Metrics Guide tab of the evaluation dashboard](images/eval_dashboard_metrics_guide.gif)
 
 ## Folder Contents
 
