@@ -4,7 +4,7 @@ A short, top-down map of the Competitive Intelligence Agent project. For
 detail on individual files, see [README.md](README.md).
 
 ```
-CompetitiveIntelligenceAgent_LangGraph/
+CompetitiveIntelligenceAgent/
 │
 ├── README.md                          ← Project overview, setup, run instructions
 ├── info_project.md                    ← This file — folder structure at a glance

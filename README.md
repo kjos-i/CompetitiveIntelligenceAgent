@@ -247,7 +247,7 @@ Select mode at the prompt:
 
 ### Streamlit Dashboard
 
-Run from within the `CompetitiveIntelligenceAgent_LangGraph` folder:
+Run from within the `CompetitiveIntelligenceAgent` folder:
 
 ```bash
 python -m streamlit run dashboard.py --server.port 8501
